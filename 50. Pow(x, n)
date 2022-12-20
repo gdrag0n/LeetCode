@@ -1,0 +1,136 @@
+#GIVEN:
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+  
+  
+  
+#SOLUTIONS
+
+##attempt1:
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+    
+        ans=1
+        if i in range(n+1):
+            ans=ans*x
+		return ans
+		
+###errors:
+	- range(n+1): x gets multiplied n+1 times, yielding x**(n+1)
+	- solution fails for multiple cases, such as n=0, x=0, etc.
+	
+	
+##attempt2:
+____________________________________________________
+Understanding the cases to be considered:
+1. 	x<0	|	
+	x>0	|	
+	x=0	|	0
+	
+2.	n<0	|	(1/x)**n
+	n>0	|	x**n
+	n=0	|	1
+	
+3. 	range(n) for loop: 0,1,...,n-1 : n elements
+	product is required n times, hence not range(n+1)
+	
+4.	range(n): 	inapplicable for n<0
+	hence		range(abs(n))
+	also, for n<0: ans=ans*(1/x)
+	
+Approach:
+1.	Divide on the basis of x(==0|!=0)
+2.	Introduce for loop w range(abs(n))
+3.	Further divide x!=0 on the basis of n(==0|>0|<0)
+____________________________________________________
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+
+        if x!=0:    
+            if n==0:
+                ans= 1
+
+            elif n>0:
+                ans=1
+                for i in range(abs(n)):
+                    ans= ans*x
+
+            else:
+                ans=1
+                for i in range(abs(n)):
+                    ans=ans*(1/x)
+
+        else:
+            ans= 0
+
+        return ans
+		
+####errors:
+	high runtime
+	291 / 305 testcases passed
+	
+	
+##attempt3:
+
+Realized that x doesn't need two cases.
+the answer will be zero even if it goes through the non-zero procedure.
+
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+
+        ans=1
+        for i in range(abs(n)):
+            ans= ans*x
+        
+        if n>0:
+            return ans
+        elif n<0:
+            return 1/ans
+        else:
+            return 1
+
+###errors: high runtime
+
+
+
+##attempt4:
+
+
+        if n<0:
+            n=-n
+            x=1/x
+
+        ans=1
+        for i in range(n):
+            if n!=0:
+                ans=ans*x
+        
+        return ans
+
+###error: high runtime
+
+##attempt 5:
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+
+        if n<0:
+            n=-n
+            x=1/x
+
+        ans=1
+        if n!=0:
+            ans=x**n
+        
+        return ans
+
+###WORKS!
+Though aware of something simplistic like the formula of Pow(x,n) being x**n, I overlooked it entirely and went for a long approach.
+I understand the inner logic though, learned to not overlook simple things and to not overcomplicate things, which is what matters!
+
+
+
