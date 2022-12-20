@@ -1,13 +1,13 @@
-#GIVEN:
+# GIVEN:
 
 class Solution:
     def myPow(self, x: float, n: int) -> float:
   
   
   
-#SOLUTIONS
+# SOLUTIONS
 
-##attempt1:
+## attempt1:
 
 class Solution:
     def myPow(self, x: float, n: int) -> float:
@@ -17,12 +17,12 @@ class Solution:
             ans=ans*x
 		return ans
 		
-###errors:
+### errors:
 	- range(n+1): x gets multiplied n+1 times, yielding x**(n+1)
 	- solution fails for multiple cases, such as n=0, x=0, etc.
 	
 	
-##attempt2:
+## attempt2:
 ____________________________________________________
 Understanding the cases to be considered:
 1. 	x<0	|	
@@ -68,12 +68,12 @@ class Solution:
 
         return ans
 		
-####errors:
+### errors:
 	high runtime
 	291 / 305 testcases passed
 	
 	
-##attempt3:
+## attempt3:
 
 Realized that x doesn't need two cases.
 the answer will be zero even if it goes through the non-zero procedure.
@@ -93,11 +93,11 @@ class Solution:
         else:
             return 1
 
-###errors: high runtime
+### errors: high runtime
 
 
 
-##attempt4:
+## attempt4:
 
 
         if n<0:
@@ -111,9 +111,9 @@ class Solution:
         
         return ans
 
-###error: high runtime
+### error: high runtime
 
-##attempt 5:
+## attempt 5:
 
 class Solution:
     def myPow(self, x: float, n: int) -> float:
@@ -128,7 +128,7 @@ class Solution:
         
         return ans
 
-###WORKS!
+### WORKS!
 Though aware of something simplistic like the formula of Pow(x,n) being x**n, I overlooked it entirely and went for a long approach.
 I understand the inner logic though, learned to not overlook simple things and to not overcomplicate things, which is what matters!
 
