@@ -34,3 +34,29 @@ class Solution:
         return stones
         
 3. partition
+class Solution:
+    def minStoneSum(self, piles: List[int], k: int) -> int:
+        
+        even=[]
+        odd=[]
+
+        for i in piles:
+            if i%2==0:
+                even.append(i)
+            else:
+                odd.append(i)
+        
+        even.sort()
+        odd.sort()
+        
+        array=odd+even
+        n=len(array)
+        
+        for i in range(-1,-k+1,-1):
+            array[i]=array[i]-(array[i]//2)
+        
+        stones=0
+        for i in range(n):
+            stones=stones+array[i]
+        
+        return stones
