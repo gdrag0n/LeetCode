@@ -1,0 +1,18 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+
+        n=len(digits)
+        s=0
+        for i in range(n):
+            d=digits[-1-i]
+            k=d*(10**i)
+            s=s+k
+        
+        s=str(s+1)
+        ans=[]
+
+        for i in range(len(s)):
+            l=int(s[i])
+            ans.append(l)
+
+        return ans
