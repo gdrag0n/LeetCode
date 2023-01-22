@@ -3,12 +3,12 @@
 I do not plan to use three for loops.
 The only way that can be implemented in my opinion would be to find the third value in nums instead, since we already know what sets we are looking for and what condition must be satisfied for the same.
 
-*Problem outline:
-a=nums[i]
-b=nums[j]
-c=nums[k]
-c=-(a+b) for a+b+c=0 to satisfy
-if c is in nums, and its index is not same as a and b, its value is acceptable*
+*Problem outline:<br>
+a=nums[i]<br>
+b=nums[j]<br>
+c=nums[k]<br>
+c=-(a+b) for a+b+c=0 to satisfy<br>
+if c is in nums, and its index is not same as a and b, its value is acceptable*<br>
 
 ```
 class Solution:
