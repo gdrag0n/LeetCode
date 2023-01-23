@@ -27,7 +27,21 @@ class Solution:
                     if p!=i and p!=j:
                         l.append(sorted([a,b,c]))
                         #l=[[-1,0,1],[-1,0,1],[-1,-1,2],[-1,0,1],[-1,0,1],[-1,0,1],[-1,-1,2]]
-        
+```
+### Duplicate Removal
+
+<strong>dictionary</strong>
+
+```
+l=list(dict.fromkeys(l)) 
+
+```
+Since List is not hashable, does not remove duplicates.<br>
+<br>
+<br>
+
+<strong>if + remove()</strong>
+```
         for i in l:
             if l.count(i)>1:
                 l.remove(i)
@@ -37,26 +51,11 @@ class Solution:
 nums: [-1,0,1,2,-1,-4]<br>
 Expected Output: [[-1,-1,2],[-1,0,1]]<br>
 Output: [[-1,0,1],[-1,0,1],[-1,0,1],[-1,-1,2]]<br>
+<br>
+<br>
 
-Since List is not hashable, l=list(dict.fromkeys(l)) does not remove duplicates.<br>
-I decide to remove duplicates by, well. deleting duplicates<br>
-
-# Approach 02
+<strong>for + remove()</strong>
 ```
-class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-
-        l=[]
-        n=len(nums)
-        for i in range(n):
-            for j in range(i+1,n):
-                a=nums[i]
-                b=nums[j]
-                c=-(a+b)
-                if c in nums:
-                    p=nums.index(c)
-                    if p!=i and p!=j:
-                        l.append(sorted([a,b,c]))
         
         for i in l:
             for j in range(l.count(i)-1):
@@ -64,7 +63,6 @@ class Solution:
         
         return sorted(l)
 ```
-
 nums = [-1,0,1,2,-1,-4,-2,-3,3,0,4]<br>
 146 / 312 testcases passed<br>
 Output:<br>
@@ -93,24 +91,13 @@ j in range(1):
 ```
 i is expected to be removed once for j=0, but it is not
 Therefore, using another approach to get rid of duplicates to give the solution above
+<br>
 
-# Approach 03
+<br>
 
+<strong>temporary list h</strong>
 ```
-class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
 
-        l=[]
-        n=len(nums)
-        for i in range(n):
-            for j in range(i+1,n):
-                a=nums[i]
-                b=nums[j]
-                c=-(a+b)
-                if c in nums:
-                    p=nums.index(c)
-                    if p!=i and p!=j:
-                        l.append(sorted([a,b,c]))
 
         h=[]            #list of unique triads
         for i in l:
@@ -121,6 +108,29 @@ class Solution:
         return sorted(h)
 
 ```
+Time Limit Exceeded<br>
+<br>
 
-Time Limit Exceeded
-Need to find a different solution!
+<br>
+
+<strong>set</strong>
+```
+        l=set(map(tuple, l))
+```
+Time Limit Exceeded<br>
+I believe the issue lies in the approach towards solving the question.
+<br>
+
+<br>
+
+
+# Approach 02
+*Problem outline:<br>
+a=nums[i]<br>
+b=nums[j]<br>
+c=nums[k]<br>
+<br>
+*<br>
+```
+
+```
