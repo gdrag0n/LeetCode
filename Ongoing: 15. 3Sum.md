@@ -1,30 +1,5 @@
 # Solution
-```
-class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-
-        l=[]
-        n=len(nums)
-        for i in range(n):
-            for j in range(i+1,n):
-                a=nums[i]
-                b=nums[j]
-                c=-(a+b)
-                if c in nums:
-                    p=nums.index(c)
-                    if p!=i and p!=j:
-                        l.append(sorted([a,b,c]))
-
-        h=[]            #list of unique triads
-        for i in l:
-            t= i in h
-            if not t:
-                h.append(i)
-        
-        return sorted(h)
-
-```
-# Approach 1
+# Approach 01
 
 I do not plan to use three for loops.
 The only way that can be implemented in my opinion would be to find the third value in nums instead, since we already know what sets we are looking for and what condition must be satisfied for the same.
@@ -118,3 +93,34 @@ j in range(1):
 ```
 i is expected to be removed once for j=0, but it is not
 Therefore, using another approach to get rid of duplicates to give the solution above
+
+# Approach 03
+
+```
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+
+        l=[]
+        n=len(nums)
+        for i in range(n):
+            for j in range(i+1,n):
+                a=nums[i]
+                b=nums[j]
+                c=-(a+b)
+                if c in nums:
+                    p=nums.index(c)
+                    if p!=i and p!=j:
+                        l.append(sorted([a,b,c]))
+
+        h=[]            #list of unique triads
+        for i in l:
+            t= i in h
+            if not t:
+                h.append(i)
+        
+        return sorted(h)
+
+```
+
+Time Limit Exceeded
+Need to find a different solution!
