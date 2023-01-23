@@ -1,3 +1,29 @@
+# Solution
+```
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+
+        l=[]
+        n=len(nums)
+        for i in range(n):
+            for j in range(i+1,n):
+                a=nums[i]
+                b=nums[j]
+                c=-(a+b)
+                if c in nums:
+                    p=nums.index(c)
+                    if p!=i and p!=j:
+                        l.append(sorted([a,b,c]))
+
+        h=[]            #list of unique triads
+        for i in l:
+            t= i in h
+            if not t:
+                h.append(i)
+        
+        return sorted(h)
+
+```
 # Approach 1
 
 I do not plan to use three for loops.
@@ -91,3 +117,4 @@ j in range(1):
     l.remove(i)
 ```
 i is expected to be removed once for j=0, but it is not
+Therefore, using another approach to get rid of duplicates to give the solution above
