@@ -20,3 +20,8 @@ class Solution:
         #or return sum(nums)- (n*(n+1)/2)
 
 ```
+
+# Approach 03
+```
+
+```
