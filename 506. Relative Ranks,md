@@ -1,0 +1,22 @@
+```
+class Solution:
+    def findRelativeRanks(self, score: List[int]) -> List[str]:
+
+        rank=sorted(score, reverse=True)
+
+        answer={}
+        for s in score:
+            r=rank.index(s)
+            if r==0:                    #rank 1 would be at index 0
+                r="Gold Medal"
+            elif r==1:                  #rank 2 at index 1
+                r="Silver Medal"
+            elif r==2:                  #rank 3 at index 2
+                r="Bronze Medal"            
+            else:
+                r=r+1
+
+            answer[score.index(s)]=str(r)       #rank=index+1
+                    
+        return list(answer.values())
+```
