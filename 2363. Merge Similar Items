@@ -1,0 +1,32 @@
+#Approach
+
+The idea is to use hash-map.
+to go through each item's value-weight pair, it'll be easier to combine both lists
+upon combination, if a value is occurring for the first time, it is appended to the dictionary
+and if it has already occurred, their weights are summed up
+
+then sorting occurs alongside conversion of the dictionary back into a 2d array
+
+
+```
+class Solution:
+    def mergeSimilarItems(self, items1: List[List[int]], items2: List[List[int]]) -> List[List[int]]:
+    
+    
+        items=items1+items2
+        n=len(items)
+        dic={}
+        
+        for i in range(n):
+            a=items[i][0]
+            b=items[i][1]
+            
+            if a in list(dic.keys()):
+                dic[a]=dic[a]+b
+
+            else:
+                dic[a]=b
+
+        ret=sorted(dic.items(), key=lambda x:x[0])
+        return ret
+```
