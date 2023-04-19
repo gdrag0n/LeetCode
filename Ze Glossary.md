@@ -10,3 +10,8 @@ used in #922
 sorting all even indices and all odd indices separately
 nums[::2}=sorted(nums[::2])
 nums[1::2]=sorted(nums[1::2], reverse=True)
+
+### 2363
+concatenating iterms1 and items2 into a single array is more efficient than using 2 for loops
+```if i in dictionary``` makes i traverse through the key values by default, extinguishes the need for list(dic.keys())
+```ret=sorted(dic.items(), key=lambda x:x[0])``` using lambda for large dictionaries makes it less efficient
