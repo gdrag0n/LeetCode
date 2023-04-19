@@ -30,3 +30,29 @@ class Solution:
         ret=sorted(dic.items(), key=lambda x:x[0])
         return ret
 ```
+
+
+## Improved Solution
+- lambda may be inefficient for large dictionaries, default sorting is done by key anyway so ```ret=sorted(dic.items())```
+- ```if i in dictionary:``` in itself traverses through the keys, ```list(dic.keys())``` is not required
+
+```
+class Solution:
+    def mergeSimilarItems(self, items1: List[List[int]], items2: List[List[int]]) -> List[List[int]]:
+
+        items=items1+items2
+        dic={}
+        
+        for i in items:
+            a=i[0]
+            b=i[1]
+            
+            if a in dic:
+                dic[a]=dic[a]+b
+
+            else:
+                dic[a]=b
+
+        ret=sorted(dic.items())
+        return ret
+```
