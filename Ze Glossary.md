@@ -8,8 +8,8 @@ s is a string here
 ### 2164
 used in #922
 sorting all even indices and all odd indices separately
-```nums[::2}=sorted(nums[::2])
-nums[1::2]=sorted(nums[1::2], reverse=True)```
+```nums[::2}=sorted(nums[::2])```
+```nums[1::2]=sorted(nums[1::2], reverse=True)```
 
 ### 2363
 concatenating iterms1 and items2 into a single array is more efficient than using 2 for loops
