@@ -15,3 +15,8 @@ nums[1::2]=sorted(nums[1::2], reverse=True)
 concatenating iterms1 and items2 into a single array is more efficient than using 2 for loops
 ```if i in dictionary``` makes i traverse through the key values by default, extinguishes the need for list(dic.keys())
 ```ret=sorted(dic.items(), key=lambda x:x[0])``` using lambda for large dictionaries makes it less efficient
+
+
+### 1816
+there exists a list with words which need to be concatenated into a sentence with whitespaces in between
+```" ".join(words)```
