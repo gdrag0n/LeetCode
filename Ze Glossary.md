@@ -20,3 +20,10 @@ concatenating iterms1 and items2 into a single array is more efficient than usin
 ### 1816
 there exists a list with words which need to be concatenated into a sentence with whitespaces in between
 ```" ".join(words)```
+
+### 2399
+```
+a="abcd"
+a.split()=['abcd']
+l=list(a) #= ['a','b','c','d']
+```
